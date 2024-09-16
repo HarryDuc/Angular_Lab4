@@ -1,0 +1,11 @@
+<form>
+  <div class="bar">
+    <input type="text" class="form-control" [(ngModel)]="searchString" name="searchString" placeholder="Enter your search terms" />
+  </div>
+  <ul>
+    <li *ngFor="let item of filterName()">
+      <a [href]="item.url"><img [src]="item.image" /></a>
+      <p>{{item.title}}</p>
+    </li>
+  </ul>
+</form>

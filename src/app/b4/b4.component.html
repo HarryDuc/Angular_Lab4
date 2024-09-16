@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-8">
+    <select name="" id="" [(ngModel)]="choice">
+      <option [defaultSelected]="">Price level</option>
+      <option value="199">Under 200</option>
+      <option value="200">from 200 to 500</option>
+      <option value="501">over 500</option>
+    </select>
+    <div class="table-responsive-md">
+      <table class="table table-primary">
+        <thead>
+          <tr>
+            <th scope="col">
+              <input type="checkbox" name="" id="" [(ngModel)]="option" (change)="checkedAll()">
+            </th>
+            <th scope="col">Item name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of filterprice(); track $index) {
+          <tr class="">
+            <td>
+              <input type="checkbox" name="" id="" [(ngModel)]="item.active">
+            </td>
+            <td scope="row">{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>
+              <input type="number" [(ngModel)]="item.quantity" [disabled]="!item.active">
+            </td>
+            <td>{{item.quantity * item.price | currency}}</td>
+          </tr>
+          }
+          <tr>
+            <td colspan="4">Sum total</td>
+            <td>{{Total() | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<form action="">
+  <div class="bar">
+    <a class="list-icon" (click)="layout = 'list'" [ngClass]="{'active': layout == 'list'}"></a>
+    <a class="grid-icon" (click)="layout = 'grid'" [ngClass]="{'active': layout == 'grid'}"></a>
+  </div>
+  @if (layout == 'grid') {
+  <ul class="grid">
+    @for (item of articles; track $index) {
+    <li>
+      <a href="{{item.url}}" target="_blank">
+        <img [src]="item.image.large" alt="">
+        {{item.title}}
+      </a>
+    </li>
+    }
+  </ul>
+  }
+  @if (layout == 'list') {
+  <ul class="list">
+    @for (item of articles; track $index) {
+    <li>
+      <a href="{{item.url}}">
+        <img [src]="item.image.small" alt="">
+        {{item.title}}
+      </a>
+    </li>
+    }
+  </ul>
+  }
+</form>

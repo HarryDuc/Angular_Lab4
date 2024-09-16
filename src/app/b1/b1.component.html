@@ -1,0 +1,12 @@
+<div class="form">
+  <h1>Menu</h1>
+  <ul>
+    <li *ngFor="let item of Service" (click)="option(item)" [ngClass]="{active: item.active}">
+      {{item.name}}
+      <span>{{item.price}}</span>
+    </li>
+  </ul>
+  <div class="total">
+    Total: <span>{{Total()}}</span>
+  </div>
+</div>
